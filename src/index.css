@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --color-blablacarros-600: #3C35F2;
+  --color-blablacarros-400: #4A5FD9;
+  --color-blablacarros-cinza: #FBFAFF;
+  --color-blablacarros-verde: #9BF2CA;
+}
+
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities;
