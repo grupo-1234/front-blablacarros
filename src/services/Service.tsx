@@ -1,7 +1,9 @@
+/* eslint-disable @typescript-eslint/no-wrapper-object-types */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://localhost:5175/'
+    baseURL: 'http://localhost:3000/'
 })
 
 export const buscar = async (url: string, setDados: Function) => {

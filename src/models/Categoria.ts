@@ -1,3 +1,4 @@
+
 import type { Viagem } from "./Viagem";
 
 export interface Categoria {
