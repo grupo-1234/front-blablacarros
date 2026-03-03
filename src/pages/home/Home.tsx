@@ -1,6 +1,10 @@
-import background from "../../assets/imghome.png"
+import { useNavigate } from "react-router-dom";
+import background from "../../assets/imghome.png";
+import ListaVantagens from "../../components/cards/Vantagem/ListaVantagens";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <section
@@ -19,22 +23,16 @@ function Home() {
           </p>
 
           <button
-          className={`bg-[var(--color-blablacarros-600)]
-                      text-white
-                      px-8 py-4
-                      rounded-md
-                      text-lg
-                      font-semibold
-                      hover:opacity-90
-                      transition`}
-         >
-         Buscar Carona
-        </button>
+            onClick={() => navigate("/viagens")}
+            className="bg-[var(--color-blablacarros-600)] text-white px-8 py-4 rounded-md text-lg font-semibold hover:opacity-90 transition"
+          >
+            Buscar Carona
+          </button>
         </div>
       </section>
-     
+      <ListaVantagens/>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
