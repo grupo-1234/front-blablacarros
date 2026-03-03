@@ -23,7 +23,7 @@ function ListaVantagens() {
 
   return (
     <section className="w-full py-28 bg-[var(--color-blablacarros-cinza)]">
-      <div className="container mx-auto max-w-6xl px-6">
+      <div className="container mx-auto max-w-6xl px-6 ">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-blablacarros-600)] mb-6">
             Por que usar o BlablaCarros?
