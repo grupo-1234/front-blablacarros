@@ -4,11 +4,11 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
 import { ViagemService } from "../../services/ViagemService";
 import { buscar } from "../../services/Service";
 import type { Viagem } from "../../models/Viagem";
 import type { Categoria } from "../../models/Categoria";
+import { useNavigate } from "react-router-dom";
 
 function ListarViagens() {
   const [viagens, setViagens] = useState<Viagem[]>([]);
@@ -17,6 +17,7 @@ function ListarViagens() {
   const [destinoBusca, setDestinoBusca] = useState("");
   const [dataBusca, setDataBusca] = useState("");
   const [categoriaFiltrada, setCategoriaFiltrada] = useState("");
+  const navigate = useNavigate();
 
   const carregarDados = async () => {
     setCarregando(true);
@@ -153,8 +154,11 @@ function ListarViagens() {
                         R$ {Number(viagem.preco).toFixed(2)}
                       </p>
                     </div>
-                    <button className="bg-[var(--color-blablacarros-600)] text-white text-xs px-4 py-2 rounded-lg font-bold hover:scale-105 active:scale-95 transition-transform">
-                      Ver Mais
+                    <button 
+                        onClick={() => navigate(`/viagens/${viagem.id}`)}
+                        className="bg-[var(--color-blablacarros-600)] text-white text-xs px-4 py-2 rounded-lg font-bold hover:scale-105 transition-transform"
+                        >
+                        Ver Mais
                     </button>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ import Navbar from './components/navbar/Navbar'
 import Footer from "./components/footer/Footer"
 import ListarViagens from './pages/viagens/ListarViagens';
 import CadastrarViagem from './pages/viagens/CadastrarViagem';
+import DetalhesViagem from './pages/viagens/DetalhesViagem';
 
 
 
@@ -19,7 +20,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/viagens" element={<ListarViagens />} />
+          <Route path="/viagens/:id" element={<DetalhesViagem />} />
           <Route path="/oferecer-carona" element={<CadastrarViagem />} />
+          <Route path="/editar-viagem/:id" element={<CadastrarViagem />} />
           <Route path="/categorias" element={<ListaCategorias />} />
           <Route path="/cadastroCategoria" element={<FormCategoria />} />
           <Route path="/editarCategoria/:id" element={<FormCategoria />} />
