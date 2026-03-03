@@ -24,6 +24,7 @@ function App() {
           <Route path="/oferecer-carona" element={<CadastrarViagem />} />
           <Route path="/editar-viagem/:id" element={<CadastrarViagem />} />
           <Route path="/categorias" element={<ListaCategorias />} />
+          <Route path="/cadastrarCategoria" element={<FormCategoria />} />
           <Route path="/cadastroCategoria" element={<FormCategoria />} />
           <Route path="/editarCategoria/:id" element={<FormCategoria />} />
           <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />

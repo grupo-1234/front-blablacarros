@@ -27,7 +27,10 @@ function ListarViagens() {
       if (destinoBusca.length >= 3) {
         await ViagemService.buscarPorDestino(destinoBusca, setViagens);
       } else {
-        await ViagemService.listar(setViagens);
+        await ViagemService.listar((data: Viagem[]) => {
+        console.log("VIAGENS QUE VIERAM DO BACK:", data);
+        setViagens(data);
+      });
       }
     } catch (error) {
       console.error("Erro ao carregar dados:", error);
@@ -45,7 +48,7 @@ function ListarViagens() {
 
   const viagensFiltradas = viagens.filter((viagem) => {
     const bateData = !dataBusca || new Date(viagem.data).toISOString().split('T')[0] === dataBusca;
-    const bateCategoria = !categoriaFiltrada || viagem.categoria?.descricao === categoriaFiltrada;
+    const bateCategoria = !categoriaFiltrada || viagem.categoria?.id === Number(categoriaFiltrada);
 
     return bateData && bateCategoria;
   });
@@ -88,7 +91,7 @@ function ListarViagens() {
             >
               <option value="">Todas as Categorias</option>
               {categorias.map((cat) => (
-                <option key={cat.id} value={cat.descricao}>
+                <option key={cat.id} value={cat.id}>
                   {cat.descricao}
                 </option>
               ))}

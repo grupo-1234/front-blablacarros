@@ -7,15 +7,45 @@ interface CardCategoriasProps {
 
 function CardCategorias({ categoria }: CardCategoriasProps) {
   return (
-    <div className='border flex flex-col rounded-2xl overflow-hidden justify-between bg-white shadow-md'>
-      <header className='py-2 px-6 bg-[#2563EB] text-white font-bold text-2xl'>Categoria</header>
-      <p className='p-8 text-3xl bg-slate-50 h-full text-[#374151]'>{categoria.descricao}</p>
+    <div className="flex flex-col justify-between rounded-2xl overflow-hidden 
+                    bg-white shadow-lg hover:shadow-xl 
+                    transition-all duration-300 
+                    border border-gray-100 hover:-translate-y-1">
+
+      {/*Header*/}
+      <header className="py-3 px-6 
+                         bg-[var(--color-blablacarros-600)] 
+                         text-white font-semibold text-lg tracking-wide">
+        Categoria
+      </header>
+
+      {/*Conteúdo*/}
+      <div className="p-8 bg-[var(--color-blablacarros-cinza)] flex items-center justify-center">
+        <p className="text-2xl font-medium text-gray-700 text-center">
+          {categoria.descricao}
+        </p>
+      </div>
+
+      {/*Botões*/}
       <div className="flex">
-        <Link to={`/editarCategoria/${categoria.id}`} className='w-full text-slate-100 bg-[#2563EB] hover:bg-[#1D4ED8] flex items-center justify-center py-2'>
-          <button>Editar</button>
+        <Link
+          to={`/editarCategoria/${categoria.id}`}
+          className="w-full bg-[var(--color-blablacarros-600)] 
+                     hover:bg-[var(--color-blablacarros-400)] 
+                     text-white font-medium 
+                     transition-colors duration-300 
+                     py-3 text-center">
+          Editar
         </Link>
-        <Link to={`/deletarCategoria/${categoria.id}`} className='text-slate-100 bg-red-400 hover:bg-red-700 w-full flex items-center justify-center py-2'>
-          <button>Deletar</button>
+
+        <Link
+          to={`/deletarCategoria/${categoria.id}`}
+          className="w-full bg-[var(--color-blablacarros-verde)] 
+                     hover:brightness-95 
+                     text-gray-800 font-medium 
+                     transition-all duration-300 
+                     py-3 text-center">
+          Deletar
         </Link>
       </div>
     </div>
