@@ -8,7 +8,11 @@ export const ViagemService = {
 
   criar: (dados: Viagem, setDados: Function) => cadastrar("/viagem", dados, setDados),
 
-  editar: (id: number, dados: Viagem, setDados: Function) => atualizar(`/viagem`, dados, setDados),
+  
+  editar: (dados: Viagem, setDados: Function) => {
+  console.log("dados enviados:", dados);
+  return atualizar("/viagem", dados, setDados);
+},
 
   remover: (id: number) => deletar(`/viagem/${id}`),
 
