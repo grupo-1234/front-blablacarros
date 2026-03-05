@@ -67,10 +67,13 @@ function CadastrarViagem() {
 
     try {
       if (id) {
-        await ViagemService.editar(Number(id), dadosViagem, () => {
-          ToastAlerta("Carona atualizada com sucesso!", "sucesso");
-          navigate("/viagens");
-        });
+        await ViagemService.editar(
+          { id: Number(id), ...dadosViagem },
+          () => {
+            ToastAlerta("Carona atualizada com sucesso!", "sucesso");
+            navigate("/viagens");
+          }
+        );
       } else {
         await ViagemService.criar(dadosViagem, () => {
           ToastAlerta("Carona publicada com sucesso! 🏁", "sucesso");
@@ -88,13 +91,13 @@ function CadastrarViagem() {
         <h2 className="text-2xl font-bold text-[var(--color-blablacarros-600)] mb-6 text-center">
           {id ? "Editar Carona ✍️" : "Oferecer Carona 🚗"}
         </h2>
-        
+
         <form onSubmit={processarViagem} className="space-y-4">
           <input type="text" placeholder="Partida" className="w-full p-3 border rounded-lg" value={origem} onChange={(e) => setOrigem(e.target.value)} required />
           <input type="text" placeholder="Destino" className="w-full p-3 border rounded-lg" value={destino} onChange={(e) => setDestino(e.target.value)} required />
           <input type="date" className="w-full p-3 border rounded-lg" value={data} onChange={(e) => setData(e.target.value)} required />
 
-          <select 
+          <select
             className="w-full p-3 border rounded-lg bg-white"
             value={categoriaSelecionada.id || ""}
             onChange={(e) => setCategoriaSelecionada(categorias.find(c => c.id === Number(e.target.value)) || { id: 0, descricao: "" })}
